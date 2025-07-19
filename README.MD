@@ -1,125 +1,80 @@
-# ✨ WordHelp – AI Writing Assistant Chrome Extension
+````markdown
+# ✨ WordHelp – Improve Your Writing with AI
 
-**WordHelp** is a powerful Chrome Extension that enhances your reading and writing experience using AI. With just a double-click on any word or sentence, it provides instant definitions, writing improvements, and manages open tabs via AI suggestions — all within your browser!
-
----
-
-## 🚀 Features
-
-### 🧠 AI-Powered Text Improvement
-- Select any sentence and get an improved version using the Groq AI model (LLaMA3).
-- Quickly rewrite unclear or poorly structured content.
-
-### 📖 Dictionary Definitions
-- Double-click a single word to fetch its definition instantly via the free Dictionary API.
-
-### 🧰 Clean Tooltip UI
-- Minimal, non-intrusive tooltip UI with easy interaction and click-to-improve button.
-
-### 🗂️ Tab Management (Optional Utility)
-- Extension is structured to support background script and manifest-based tab access.
-- Can be extended to manage open tabs (close unused ones, categorize reading tabs, etc.).
+**WordHelp** is a lightweight browser extension that uses AI to help you **rewrite, refine, or improve** your selected text. Whether you're writing emails, messages, or social media posts — WordHelp makes it better.
 
 ---
 
-## 🧩 How It Works
+## 📌 Features
 
-- The extension injects a content script into active tabs.
-- On **double-click**, it checks if a word or sentence is selected.
-  - If it's a single word → fetches dictionary definition.
-  - If it's a sentence → sends it to backend API (`/improve`) for AI enhancement.
-- Tooltip appears with the result and an option to trigger AI improvement.
+* **✍️ Right-click Improvement**: Select any text → Right-click → “✍ Improve with WordHelp AI”
+* **💡 Double-click Definitions**: Double-click a word to see its definition and optionally improve it
+* **🧠 AI-Powered Suggestions**: Uses a hosted backend to enhance your writing in real-time
+* **⚡️ Fast & Minimal**: No bloated UI or popups. Just select and go.
+
+---
+
+## 🚀 How to Use
+
+### 🔌 1. Install the Extension Locally
+
+1.  Download or clone this repo:
+    ```bash
+    git clone [https://github.com/Abhisheksaha7530/WordHelp-Extensions.git](https://github.com/Abhisheksaha7530/WordHelp-Extensions.git)
+    ```
+2.  Go to `chrome://extensions/` (or your Chromium browser's extension page).
+3.  Enable **Developer Mode**.
+4.  Click **Load unpacked** and select the `client/` folder inside the repo.
+
+### 🖱️ 2. Try It Out
+
+* ✅ **Double-click any word** — you'll see a floating tooltip with its definition and an "Improve" button.
+* ✅ **Right-click selected text** — choose "✍ Improve with WordHelp AI" to get enhanced suggestions.
+
+---
+
+## 🧠 Backend (Hosted)
+
+The AI text enhancement is handled by a Node.js backend hosted externally on Render:
+
+`https://wordhelp-extensions.onrender.com/improve`
+
+This API receives your text and returns an improved version using AI logic.
+
+⚠️ The backend code is not pushed to this repository. If you'd like a version of the backend for local development, feel free to request it.
 
 ---
 
 ## 📁 Project Structure
 
-wordhelp-extension/
-├── background.js # Handles context menu, install actions
-├── content.js # Injected into pages for tooltip + interaction
-├── manifest.json # Chrome extension manifest (v3)
-├── server/
-│ └── index.js # Express.js backend with Groq AI integration
-├── icons/ # Icons for Chrome extension
-│ ├── icon16.png
-│ └── icon128.png
-├── README.md # You’re reading it
+````
 
+WordHelp-Extensions/
+├── client/                     \# Browser extension source code
+│   ├── background.js           \# Handles background tasks
+│   ├── content.js              \# Interacts with web page content
+│   ├── manifest.json           \# Extension manifest file
+│   ├── icons/                  \# Extension icons
+│   └── ...
+└── docs/                       \# Documentation and related files
+└── index.html
 
+```
 
 ---
 
-## ⚙️ Setup Instructions
+## ✅ Browser Compatibility
 
-### 1. Clone the Repository
+| Browser         | Supported |
+| :-------------- | :-------- |
+| Chrome          | ✅ Yes    |
+| Edge            | ✅ Yes    |
+| Brave           | ✅ Yes    |
+| Kiwi (Android)  | ✅ Yes    |
 
-```bash
-git clone https://github.com/Abhisheksaha7530/WordHelp-Extensions
-cd WordHelp-extension
+---
 
-2. Install and Start Backend Server
-Make sure you have Node.js and npm installed.
+## 🙋 Author
 
-bash
-Copy
-Edit
-cd server
-npm install
-touch .env
-Inside .env, add:
-
-ini
-Copy
-Edit
-GROQ_API_KEY=your_groq_api_key_here
-Then run:
-
-bash
-Copy
-Edit
-node index.js
-Server will start at http://localhost:3001
-
-3. Load Chrome Extension
-Go to chrome://extensions/
-
-Enable Developer Mode
-
-Click Load Unpacked
-
-Select the root wordhelp-extension/ folder (where manifest.json is)
-
-Done!
-
-🛠️ Tech Stack
-Frontend: Vanilla JS + Chrome APIs + Shadow DOM
-
-Backend: Node.js, Express, Groq SDK
-
-AI Model: Groq's LLaMA3-8B
-
-Dictionary API: https://dictionaryapi.dev
-
-🔐 Permissions Required
-
-activeTab: To inject scripts on currently active tabs.
-
-scripting: To run content scripts.
-
-contextMenus: To add right-click options for selected text.
-
-🌟 Future Ideas
-
-Option to toggle AI features on/off
-
-Sentence complexity level feedback
-
-Save improved versions locally
-
-
-🙌 Acknowledgements
-Groq AI for powerful LLaMA3 models
-
-Free Dictionary API
-
-Open Source Chrome Extension Community
+[Abhishek Saha](https://github.com/Abhisheksaha7530)
+```
