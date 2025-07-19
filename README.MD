@@ -1,4 +1,4 @@
-````markdown
+markdown
 # ✨ WordHelp – Improve Your Writing with AI
 
 **WordHelp** is a lightweight browser extension that uses AI to help you **rewrite, refine, or improve** your selected text. Whether you're writing emails, messages, or social media posts — WordHelp makes it better.
@@ -13,6 +13,7 @@
 * **⚡️ Fast & Minimal**: No bloated UI or popups. Just select and go.
 
 ---
+#Image
 
 ## 🚀 How to Use
 
@@ -59,7 +60,7 @@ WordHelp-Extensions/
 └── docs/                       \# Documentation and related files
 └── index.html
 
-```
+
 
 ---
 
